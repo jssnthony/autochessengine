@@ -6,6 +6,11 @@
     border: 1px solid red;
 }
 
-.mine{
+
+.neutral{
+    border: 1px solid black;
+}
+
+.ally{
     border: 1px solid green;
 }
