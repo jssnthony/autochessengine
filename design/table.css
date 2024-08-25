@@ -1,0 +1,11 @@
+.main-table{
+    border: 1px solid black;
+}
+
+.enemy{
+    border: 1px solid red;
+}
+
+.mine{
+    border: 1px solid green;
+}
