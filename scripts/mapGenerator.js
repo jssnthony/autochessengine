@@ -6,12 +6,15 @@ class MapGenerator {
 
         //se esta asignando la tabla a una variable
         let mainTable = document.getElementById(SETUP_TableNameID);
+        let rows = "";
+        
+        rows += this.#rowsGenerator(enum_mapSides.heroesStand, 1, SETUP_heroes_columns);
 
-        //generando las 3 secciones
-        //enemigos, neutro, nuestro
-        let rows = this.#rowsGenerator(enum_mapSides.enemy, SETUP_player_rows);
-        rows += this.#rowsGenerator(enum_mapSides.neutral, SETUP_neutral_rows);
-        rows += this.#rowsGenerator(enum_mapSides.ally, SETUP_player_rows);
+        rows += this.#rowsGenerator(enum_mapSides.enemy, SETUP_player_rows, SETUP_player_columns);
+        rows += this.#rowsGenerator(enum_mapSides.neutral, SETUP_neutral_rows, SETUP_player_columns);
+        rows += this.#rowsGenerator(enum_mapSides.ally, SETUP_player_rows, SETUP_player_columns);
+
+        rows += this.#rowsGenerator(enum_mapSides.heroesStand, 1, SETUP_heroes_columns);
 
         mainTable.innerHTML = rows;
     }
@@ -20,13 +23,13 @@ class MapGenerator {
         document.body.innerHTML = "<table id='"+ SETUP_TableNameID +"'></table>";
     }
 
-    #rowsGenerator = function(side, rows){
+    #rowsGenerator = function(side, rows, columns){
         let render = "";
         for(let iRows = 0 ; iRows<rows; iRows++){
             render += "<tr>";
-            for(let i = 0; i<7; i++){
+            for(let i = 0; i<columns; i++){
                 render += "<td class='" + side + "'>" 
-                    + (i+1) + 
+                    
                     "</td>";
             }
             render += "</tr>"
